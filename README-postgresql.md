@@ -17,7 +17,7 @@ spring.datasource.driver-class-name=org.postgresql.Driver
 
 * 将 ` 修改为 "
 * 修改 LIMIT #{offset}, #{pagesize} 为 LIMIT #{pagesize} OFFSET #{offset} 。
-* 修改DATE_ADD(#{nowTime},INTERVAL - #{timeout} SECOND) 为 ((select NOW())-INTERVAL '${timeout} S') 。
+* 修改DATE_ADD(#{nowTime},INTERVAL - #{timeout} SECOND) 为 (cast(#{nowTime} as timestamp) - INTERVAL '${timeout} S') 。
 * 修改 WHERE !( 为 WHERE not ( 
 
 ## 重新编译镜像
